@@ -15,16 +15,14 @@
   $: remaining = todos.filter(e => !e.done).length;
 </script>
 
-{#each todos as todo}
-  <div class:done={todo.done}>
-    <ul class="todo">
-      <li class="todo-item">
-        <input type="checkbox" bind:checked={todo.done} />
-        <input bind:value={todo.text} />
-      </li>
-    <ul>
-  </div>
-{/each}
+<ul class="todo">
+  {#each todos as todo}
+    <li class="todo-item" class:done={todo.done}>
+      <input type="checkbox" bind:checked={todo.done} />
+      <input bind:value={todo.text} />
+    </li>
+  {/each}
+</ul>
 
 <div>remining: {remaining} count</div>
 <div>
